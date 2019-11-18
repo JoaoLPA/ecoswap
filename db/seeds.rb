@@ -7,11 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Removing Materials and Swaps..."
-Material.destroy_all
 Swap.destroy_all
+Material.destroy_all
+
+puts "Creating new Users"
+5.times do
+  User.create!(email: Faker::Internet.email, password: "supersenha", password_confirmation: "supersenha")
+end
 
 puts "Creating new Materials"
-descrp_mat = %w[cardboard newspaper glass aluminium plastic]
+descrip_mat = %w[cardboard newspaper glass aluminium plastic]
+users = User.all
+
 30.times do
-  Material.create!(description: descrp_mat.sample, amount: "#{rand(1..100)} Kg")
+  Material.create!(description: descrip_mat.sample, amount: "#{rand(1..100)} Kg", location: "Rua #{Faker::Name.name}, #{rand(13..999)}", available: true, price: 0, user_id: users.sample.id )
+end
+
+puts "Creating some Ecoswaps"
+materials = Material.all
+
+materials.each do |material|
+    Swap.create!(user_id: users.sample.id, material_id: materials.sample.id)
 end
