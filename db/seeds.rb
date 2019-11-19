@@ -8,30 +8,39 @@
 
 puts "Removing Materials and Swaps..."
 Swap.destroy_all
+Offer.destroy_all
 Material.destroy_all
 User.destroy_all
 
 puts "Creating new Users"
-5.times do
+10.times do
   User.create!(email: Faker::Internet.email, password: "supersenha", password_confirmation: "supersenha")
 end
 
-puts "Creating new Materials"
-descrip_mat = %w[cardboard newspaper glass aluminium plastic]
-users = User.all
+puts "Creating the Materials"
+names = %w[cardboard newspaper glass aluminium plastic]
 
-30.times do
-  Material.create!(description: descrip_mat.sample, amount: "#{rand(1..100)} Kg", location: "Rua #{Faker::Name.name}, #{rand(13..999)}", available: true, price: 0, user_id: users.sample.id )
+names.each do |name|
+  Material.create!(name: name)
 end
 
-puts "Creating some Ecoswaps"
+puts "Creating some offers"
+
+users = User.all
 materials = Material.all
 
-materials.each do |material|
+ 20.times do
+  Offer.create!(description: 'A bucket full of stuff', amount: rand(1..100), unit: "Kg", price: 0, user: users.sample, material: materials.sample)
+ end
+
+puts "Creating some Ecoswaps"
+offers = Offer.all
+
+offers.each do |offer|
   rand_number = rand(1..100)
   if rand_number < 25
-    Swap.create!(user_id: users.sample.id, material_id: material.id)
-    material.available = false
-    material.save
+    Swap.create!(user_id: users.sample.id, offer_id: offer.id)
+    offer.available = false
+    offer.save
   end
 end

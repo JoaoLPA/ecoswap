@@ -11,7 +11,7 @@
     @material = Material.new
   end
 
-  def create
+    def create
     @material = Material.new(material_params)
     @material.user_id = current_user.id
     if @material.save
@@ -22,10 +22,10 @@
 
   end
 
-
   private
 
   def material_params
     params.require(:material).permit(:description, :price, :amount, :location, :available, :user_id)
   end
-end
+
+  end
