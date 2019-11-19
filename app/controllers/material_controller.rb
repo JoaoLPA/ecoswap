@@ -12,9 +12,13 @@
   end
 
   def create
-    raise
     @material = Material.new(material_params)
-    raise
+    @material.user_id = current_user.id
+    if @material.save
+      redirect_to material_path(@material)
+      else
+        render :new
+    end
 
   end
 
