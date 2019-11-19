@@ -9,6 +9,7 @@
 puts "Removing Materials and Swaps..."
 Swap.destroy_all
 Material.destroy_all
+User.destroy_all
 
 puts "Creating new Users"
 5.times do
@@ -27,5 +28,10 @@ puts "Creating some Ecoswaps"
 materials = Material.all
 
 materials.each do |material|
-    Swap.create!(user_id: users.sample.id, material_id: materials.sample.id)
+  rand_number = rand(1..100)
+  if rand_number < 25
+    Swap.create!(user_id: users.sample.id, material_id: material.id)
+    material.available = false
+    material.save
+  end
 end
