@@ -1,0 +1,7 @@
+<%= simple_form_for @material do |f| %>
+  <%= f.input :description, collection: %w[cardboard newspaper glass aluminium plastic] %>
+  <%= f.input :amount %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.submit "add your material" %>
+<% end %>
