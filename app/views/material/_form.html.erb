@@ -1,10 +1,7 @@
-<h1>Let's create your ad</h1>
-
-<%= simple_form_for @material, url: material_index_path do |f| %>
+<%= simple_form_for @material do |f| %>
   <%= f.input :description, collection: %w[cardboard newspaper glass aluminium plastic] %>
   <%= f.input :amount %>
   <%= f.input :location %>
   <%= f.input :price %>
   <%= f.submit "add your material" %>
 <% end %>
-
