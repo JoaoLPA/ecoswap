@@ -1,4 +1,4 @@
 class Swap < ApplicationRecord
   belongs_to :user
-  belongs_to :material
+  belongs_to :offer
 end

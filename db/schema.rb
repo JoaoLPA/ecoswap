@@ -10,29 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_201110) do
+ActiveRecord::Schema.define(version: 2019_11_19_194036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "materials", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
     t.text "description"
-    t.string "amount"
+    t.float "amount"
+    t.string "unit"
     t.text "location"
-    t.integer "price"
-    t.boolean "available"
+    t.decimal "price"
+    t.boolean "available", default: true
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_materials_on_user_id"
+    t.bigint "material_id"
+    t.index ["material_id"], name: "index_offers_on_material_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "swaps", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "material_id"
+    t.bigint "offer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["material_id"], name: "index_swaps_on_material_id"
+    t.index ["offer_id"], name: "index_swaps_on_offer_id"
     t.index ["user_id"], name: "index_swaps_on_user_id"
   end
 
@@ -48,7 +57,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_201110) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "materials", "users"
-  add_foreign_key "swaps", "materials"
+  add_foreign_key "offers", "materials"
+  add_foreign_key "offers", "users"
+  add_foreign_key "swaps", "offers"
   add_foreign_key "swaps", "users"
 end
