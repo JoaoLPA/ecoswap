@@ -1,0 +1,19 @@
+<h1><%= @offer.description.capitalize %></h1>
+<div>
+   <%= @offer.amount %>
+   <%= @offer.unit %>
+</div>
+
+<div>
+   <%= @offer.location %>
+</div>
+
+<div>
+  <% if @offer.price == 0 %>
+    <p>free</p>
+  <% else %>
+    <%= @offer.price %>
+  <% end %>
+</div>
+
+<%= link_to "Back to offers", offer_index_path %>

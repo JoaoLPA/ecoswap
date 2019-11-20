@@ -1,0 +1,17 @@
+<h1>All offers</h1>
+
+<ol>
+<% @offers.each do |offer| %>
+  <div>
+      <% if offer.available == true && offer.material_id == 1 %>
+      <li>
+       <%= link_to offer_path(offer) do %>
+          <%= offer.material.name %>
+       <% end %>
+      </li>
+      <% end %>
+  </div>
+<% end %>
+
+</ol>
+
