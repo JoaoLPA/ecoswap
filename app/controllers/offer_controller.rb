@@ -22,10 +22,11 @@
     end
   end
 
+
   private
 
   def offer_params
-    params.require(:offer).permit(:description, :material_id, :unit, :amount, :price, :location)
+    params.require(:offer).permit(:description, :material_id, :unit, :amount, :price, :location, :photo)
   end
 
   end
