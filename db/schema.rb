@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_11_20_150551) do
     t.datetime "updated_at", null: false
     t.bigint "material_id"
     t.string "photo"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["material_id"], name: "index_offers_on_material_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
