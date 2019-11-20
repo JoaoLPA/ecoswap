@@ -11,22 +11,21 @@
     @offer = Offer.new
   end
 
-    def create
+  def create
     @offer = Offer.new(offer_params)
-    @offer.user_id = current_user.id
+    @offer.user = current_user
 
     if @offer.save
       redirect_to offer_path(@offer)
       else
         render :new
     end
-
   end
 
   private
 
   def offer_params
-    params.require(:offer).permit(:description, :material, :unit, :amount, :price, :location, :available, :user_id)
+    params.require(:offer).permit(:description, :material_id, :unit, :amount, :price, :location)
   end
 
   end
