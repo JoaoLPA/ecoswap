@@ -7,10 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ​
 puts "Removing Materials and Swaps..."
-Swap.destroy_all
-Offer.destroy_all
-Material.destroy_all
-User.destroy_all
+
 ​
 puts "Creating new Users"
 User.create!(email: "teste@teste.com.br", password: "supersenha", password_confirmation: "supersenha")
