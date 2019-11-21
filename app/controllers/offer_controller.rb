@@ -13,6 +13,11 @@
 
   def show
     @offer = Offer.find(params[:id])
+
+    @markers =  {
+        lat: @offer.latitude,
+        lng: @offer.longitude
+      }
   end
 
   def new
