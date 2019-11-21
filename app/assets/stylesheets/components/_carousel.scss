@@ -1,0 +1,36 @@
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-text {
+  position: absolute;
+  z-index: 100;
+  top: 30%;
+  margin-left: 5rem;
+  h1 {
+  font-family: 'Advent Pro', sans-serif;
+  font-weight: bolder;
+  font-size: 5em;
+  }
+
+  h2 {
+  font-family: 'Chivo', sansserif;
+  font-size: 25px;
+  }
+
+  p {
+  font-family: 'Chivo', sansserif;
+  font-size: 1em;
+  }
+
+  .btn-banner {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #746C34;
+    transition: background 0.3s ease;
+    text-align: center;
+  }
+
+}
+
