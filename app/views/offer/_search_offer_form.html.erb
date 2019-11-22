@@ -5,4 +5,11 @@
   <% end %>
 </div>
 
+<div class="d-flex form-group justify-content-center">
+  <%= form_tag offer_index_path, method: :get, class: 'form-inline' do %>
+    <%= select_tag(:query, options_for_select(@materials, "name"), class: "form-control") %>
+    <%= submit_tag "Find a material", class: "btn btn-outline-secondary ml-2" %>
+  <% end %>
+</div>
+
 <img src="" alt="">
