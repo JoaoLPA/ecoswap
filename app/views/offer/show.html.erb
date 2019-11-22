@@ -7,11 +7,15 @@
 
     <div class="col-sm">
 
-      <% if @offer.photo.nil? %>
-        <%=@offer.photo %>
+      <% if @offer.photo.to_s.empty? %>
+
+      <%=image_tag('empty.png', :size => "400x300", style: 'margin-bottom:20px;') %>
+
+        <%#=@offer.photo %>
       <% else %>
-        <%=@offer.photo =  image_tag('empty.png', :size => "400x300", style: 'margin-bottom:20px;') %>
+        <%= image_tag(@offer.photo_url, :size => "400x300", style: 'margin-bottom:20px;') %>
       <% end %>
+
 
     </div>
 
@@ -60,7 +64,7 @@
       </div>
 
       <div class="container">
-          <%= link_to "Back to offers", offer_index_path, class: "btn" %>
+          <%= link_to "Back to offers", offer_index_path, class: "btn o-button" %>
       </div>
 
 
