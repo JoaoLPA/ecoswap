@@ -1,0 +1,72 @@
+.wrapper {
+  display: grid;
+  // grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+  margin-right: -20px;
+  margin-left: -20px;
+
+
+
+  h1 {
+    color: #e46025;
+  }
+
+  h2 {
+    font-family: 'Chivo', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  padding: 20px;
+  height: 100%;
+}
+
+
+.showing-offer {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+
+.o-button {
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #746C34;
+  color: white;
+  font-weight: lighter;
+  text-transform: uppercase;
+  padding: 1px 3px;
+  font-size: 14px;
+  text-align: center;
+
+  }
+
+
+.p {
+  font-size: 18px;
+  font-weight: lighter;
+  width:40%;
+  text-align:left;
+}
+
+.h2 {
+  font-family: 'Chivo', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+h1 {
+  font-family: 'Chivo', sans-serif;
+  font-size: 30px;
+}
+
+}
+
+

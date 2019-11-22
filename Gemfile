@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'pg_search', '~> 2.3.0'
 gem 'carrierwave', '~> 1.2'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
