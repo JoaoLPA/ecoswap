@@ -9,8 +9,6 @@
   </div>
 </div>
 
-
-
 <div class="container mt-4 mb-4">
  <div class="input-group md-form form-sm form-2 pl-0">
    <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
@@ -23,7 +21,13 @@
 
 <div class="container">
 
+
   <div class="row mt-5">
+      <div class="col-4 offset-4">
+        <div class="mb-4">
+           <%= link_to "Create offer", new_offer_path, class: "btn btn-dark d-block" %>
+        </div>
+      </div>
     <div class="col-8 offset-2">
       <%= render 'search_offer_form' %>
     </div>
@@ -48,7 +52,7 @@
       <% end %>
     <% end %>
   </div>
-  <%= link_to "Create offer", new_offer_path %>
+
 </div>
 
 <!-- url('https://images.unsplash.com/photo-1507560461415-997cd00bfd45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' -->

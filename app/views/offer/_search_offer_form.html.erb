@@ -3,6 +3,24 @@
     <%= select_tag(:query, options_for_select(@materials, "name"), class: "form-control") %>
     <%= submit_tag "Find a material", class: "btn btn-outline-secondary ml-2" %>
   <% end %>
+  <a class="btn ml-1" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      + options
+  </a>
 </div>
+
+<div clas="m-3 d-flex justify-content-center">
+
+  <div class="collapse" id="collapseExample" >
+    <div class="d-flex form-group justify-content-center">
+      <%= form_tag offer_index_path, method: :get, class: 'form-inline' do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Rua Mourato Coelho, 1404" %>
+        <%= submit_tag "Find near you", class: "btn btn-outline-secondary ml-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
 
 <img src="" alt="">

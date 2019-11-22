@@ -3,11 +3,10 @@
     before_action :set_materials_name, only: :index
 
   def index
-
     if params[:query].present?
-      @offers = Offer.offers_search(params[:query])
+      @offers = Offer.offers_search(params[:query]).paginate(params[:page]).per(9)
     else
-      @offers = Offer.all
+      @offers = Offer.all.page(params[:page]).per(9)
     end
   end
 
