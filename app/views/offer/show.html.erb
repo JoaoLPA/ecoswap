@@ -1,23 +1,75 @@
-<h1><%= @offer.description.capitalize %></h1>
-<div>
-   <%= @offer.amount %>
-   <%= @offer.unit %>
+<div class="container">
+<div class="showing-offer">
+  <div class="text-container">
+    <div class="row">
+
+<!-- primeira coluna -->
+
+    <div class="col-sm">
+
+      <% if @offer.photo.nil? %>
+        <%=@offer.photo %>
+      <% else %>
+        <%=@offer.photo =  image_tag('empty.png', :size => "400x300", style: 'margin-bottom:20px;') %>
+      <% end %>
+
+    </div>
+
+<!-- segunda coluna -->
+
+    <div class="col-sm">
+        <div class="wrapper">
+
+          <div class="box">
+            <%= image_tag('11.svg', :size => "50x50", style: 'margin-bottom:20px;') %>
+            <div>
+              <h1><%= @offer.description.capitalize %></h1>
+            </div>
+
+            <div>
+              <h2>
+                <% if @offer.price == 0 %>
+                  <p>free</p>
+                <% else %>
+                  <%= @offer.price %>
+                <% end %>
+              </h2>
+            </div>
+
+            <div>
+              <p>
+                <%= @offer.amount %>
+                <%= @offer.unit %>
+              </p>
+            </div>
+
+
+            <div>
+              <a href="/checkout" class="btn o-button"> Take that offer </a>
+            </div>
+
+      </div>
+    </div>
 </div>
 
-<div>
-   <%= @offer.location %>
+<!-- terceira coluna -->
+
+      <div class="col-sm">
+      <%= image_tag('map.png', :size => "400x310") %>
+        <div><p> <%= @offer.location %> </p></div>
+      </div>
+
+      <div class="container">
+          <%= link_to "Back to offers", offer_index_path %>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
 </div>
-
-<div>
-  <% if @offer.price == 0 %>
-    <p>free</p>
-  <% else %>
-    <%= @offer.price %>
-  <% end %>
-</div>
-
-
-<%= cl_image_tag @offer.photo, height: 300, width: 400, crop: :fill %>
 
 
 <div
@@ -29,4 +81,3 @@
 ></div>
 
 
-<%= link_to "Back to offers", offer_index_path %>
