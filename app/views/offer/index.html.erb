@@ -40,7 +40,7 @@
       <% if offer.available == true%>
         <div class="col-4">
           <div class="card" >
-            <%= image_tag('5.jpg', class: 'card-img-top') %>
+            <%= image_tag(offer.photo_url || '5.jpg', class: 'card-img-top') %>
             <div class="card-body">
               <h5 class="card-title"><%= offer.material.name %></h5>
               <p class="card-text"><%= offer.description %></p>
