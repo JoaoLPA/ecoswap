@@ -1,81 +1,76 @@
 <div class="container">
-<div class="showing-offer">
-  <div class="text-container">
-    <div class="row">
+  <div class="showing-offer">
+    <div class="text-container">
+      <div class="row d-flex align-content-stretch flex-wrap">
 
-<!-- primeira coluna -->
-
-    <div class="col-sm">
-
-      <% if @offer.photo.to_s.empty? %>
-
-      <%=image_tag('empty.png', :size => "400x300", style: 'margin-bottom:20px;') %>
-
-        <%#=@offer.photo %>
-      <% else %>
-        <%= image_tag(@offer.photo_url, :size => "400x300", style: 'margin-bottom:20px;') %>
-      <% end %>
-
-
-    </div>
-
-<!-- segunda coluna -->
-
-    <div class="col-sm">
-        <div class="wrapper">
-
-          <div class="box">
-            <%= image_tag('11.svg', :size => "50x50", style: 'margin-bottom:20px;') %>
-            <div>
-              <h1><%= @offer.description.capitalize %></h1>
-            </div>
-
-            <div>
-              <h2>
-                <% if @offer.price == 0 %>
-                  <p>free</p>
-                <% else %>
-                  <%= @offer.price %>
-                <% end %>
-              </h2>
-            </div>
-
-            <div>
-              <p>
-                <%= @offer.amount %>
-                <%= @offer.unit %>
-              </p>
-           </div>
-
-
-
-              <a href="/checkout" class="btn o-button"> Take that offer </a>
-            </div>
-
-      </div>
-    </div>
-</div>
-
-<!-- terceira coluna -->
+  <!-- primeira coluna -->
 
       <div class="col-sm">
-        <div
-          id="map"
-          style="width: 400px;
-          height: 310px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+
+        <% if @offer.photo.to_s.empty? %>
+
+        <%=image_tag('empty.png', :size => "400x300", style: 'margin-bottom:20px;') %>
+
+        <% else %>
+          <%= image_tag(@offer.photo_url, :size => "400x300", style: 'margin-bottom:20px;') %>
+        <% end %>
+
+      </div>
+
+  <!-- segunda coluna -->
+
+      <div class="col-sm">
+          <div class="wrapper">
+            <div class="box">
+              <%= image_tag('11.svg', :size => "50x50", style: 'margin-bottom:20px;') %>
+
+              <div>
+                <h1><%= @offer.description.capitalize %></h1>
+              </div>
+
+              <div>
+                <h2>
+                  <% if @offer.price == 0 %>
+                    <p>free</p>
+                  <% else %>
+                    <%= @offer.price %>
+                  <% end %>
+                </h2>
+              </div>
+
+              <div>
+                <p>
+                  <%= @offer.amount %>
+                  <%= @offer.unit %>
+                </p>
+              </div>
+
+                <a href="/checkout" class="btn o-button"> Take that offer </a>
+
+            </div>
+          </div>
+      </div>
+
+  <!-- terceira coluna -->
+
+        <div class="col-sm">
+          <div
+            id="map"
+            style="width: 400px;
+            height: 310px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          </div>
+
         </div>
+          <div><p> <%= @offer.location %> </p></div>
 
-        <div><p> <%= @offer.location %> </p></div>
+
       </div>
-
-      <div class="container">
-          <%= link_to "Back to offers", offer_index_path, class: "btn o-button" %>
-      </div>
-
+        <div class="container">
+            <%= link_to "Back to offers", offer_index_path, class: "btn p-button" %>
+        </div>
     </div>
-  </div>
 </div>
 
 
