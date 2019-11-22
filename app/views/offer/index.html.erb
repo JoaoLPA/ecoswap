@@ -22,10 +22,18 @@
  </div>
 
 <div class="container">
+
+  <div class="row mt-5">
+    <div class="col-8 offset-2">
+      <%= render 'search_offer_form' %>
+    </div>
+  </div>
+
+
   <div class="row">
 
     <% @offers.each do |offer| %>
-      <% if offer.available == true && offer.material_id == 1 %>
+      <% if offer.available == true%>
         <div class="col-4">
           <div class="card" >
             <!-- <img src= class= "card-img-top" alt="..."> -->
