@@ -21,10 +21,19 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+
+
+<%-#     <%= f.file_field :photo %>
+
+    <%= f.input :fname, label: "First name", required: false, autofocus: true %>
+    <%= f.input :lname, label: "Last name", required: false, autofocus: true %>
+    <%= f.input :address, label: "Address", required: false, autofocus: true %>
+
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
+
   </div>
 <% end %>
 
